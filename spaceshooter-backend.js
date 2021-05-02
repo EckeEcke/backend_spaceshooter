@@ -11,6 +11,7 @@ const con = mysql.createConnection({
 });
 
 let sql = `SELECT * FROM highscores ORDER BY Score DESC`;
+const port = process.env.PORT || 80;
 
 con.connect(function(err) {
   if(err) throw err;
@@ -27,4 +28,4 @@ app.get('/', function (req, res) {
     else {
       res.send(result);
     }})
-}).listen(3000);
+}).listen(port);

@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const port = process.env.PORT || 3000;
 const http = require('http');
 const mysql = require('mysql');
 const con = mysql.createConnection({
@@ -11,7 +12,7 @@ const con = mysql.createConnection({
 });
 
 let sql = `SELECT * FROM highscores ORDER BY Score DESC`;
-const port = process.env.PORT || 80;
+
 
 con.connect(function(err) {
   if(err) throw err;

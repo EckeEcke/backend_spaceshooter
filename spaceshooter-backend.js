@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 3000;
 const http = require('http');
@@ -11,7 +12,7 @@ const con = mysql.createConnection({
   port: 3306
 });
 
-let sql = `SELECT * FROM highscores ORDER BY Score DESC`;
+const sql = `SELECT * FROM highscores ORDER BY Score DESC`;
 
 
 con.connect(function(err) {
@@ -22,6 +23,8 @@ con.connect(function(err) {
      console.log("Result: " + result);
   });
 });
+
+app.use(cors());
 
 app.get('/', function (req, res) {
   con.query(sql, function(err,result){

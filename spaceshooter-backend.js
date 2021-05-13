@@ -15,7 +15,9 @@ const con = mysql.createConnection({
 const sql = `SELECT * FROM highscores ORDER BY Score DESC`;
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  'Access-Control-Allow-Origin': '*'
+}));
 
 con.connect(function(err) {
   if(err) throw err;

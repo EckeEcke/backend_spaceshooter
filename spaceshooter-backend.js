@@ -26,11 +26,8 @@ con.connect(function(err) {
 
 app.use(express.json());
 app.use(cors({
-  'origin': 'https://eckeecke.github.io',
+  'Access-Control-Allow-Origin': '*'
 }));
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "https://eckeecke.github.io");
-});
 
 
 app.get('/', function (req, res) {

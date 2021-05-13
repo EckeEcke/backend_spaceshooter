@@ -44,6 +44,5 @@ app.post('/post', function(request,response){
   con.query('INSERT INTO highscores (Player,Score) VALUES (?, ?)',[request.body.Player,request.body.Score], function (err) {
     if(err) throw err;
     else {response.send("Received request")};
-  });
-  con.end()
+  })
 })

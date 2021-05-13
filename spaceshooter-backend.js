@@ -38,12 +38,9 @@ app.get('/', function (req, res) {
     }})
 }).listen(port);
 
-let Player = 'Jana'
-let Score = 10
-
 app.post('/post', function(request,response){
   console.log('Request was: ' + request)
-  con.query('INSERT INTO highscores (Player,Score) VALUES (?, ?)',[/*request.body.*/Player,/*request.body.*/Score], function (err) {
+  con.query('INSERT INTO highscores (Player,Score) VALUES (?, ?)',[request.body.Player,request.body.Score], function (err) {
     if(err) throw err;
     else {response.send("Received request")};
   });

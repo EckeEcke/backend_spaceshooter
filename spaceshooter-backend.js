@@ -37,8 +37,6 @@ app.get('/', function (req, res) {
 
 
 app.post('/post', function(request,response){
-  //const postSQL = 'INSERT INTO highscores (Player, Score) VALUES ([request.body.Player],[request.body.Score])';
-  console.log(request.body);
   con.query('INSERT INTO highscores (Player,Score) VALUES (?, ?)',[request.body.Player,request.body.Score], function (err) {
     if(err) throw err;
   })

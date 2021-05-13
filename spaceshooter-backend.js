@@ -24,11 +24,8 @@ con.connect(function(err) {
   });
 });
 
+app.use(cors());
 app.use(express.json());
-app.use(cors({
-  'Access-Control-Allow-Origin': '*'
-}));
-
 
 app.get('/', function (req, res) {
   con.query(sql, function(err,result){
@@ -40,6 +37,8 @@ app.get('/', function (req, res) {
 
 
 app.post('/post', function(request,response){
+  //const postSQL = 'INSERT INTO highscores (Player, Score) VALUES ([request.body.Player],[request.body.Score])';
+  console.log(request.body);
   con.query('INSERT INTO highscores (Player,Score) VALUES (?, ?)',[request.body.Player,request.body.Score], function (err) {
     if(err) throw err;
     else {response.send("Received request")};

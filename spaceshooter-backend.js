@@ -47,5 +47,4 @@ app.post('/post', function(request,response){
     if(err) throw err;
     else {response.send("Received request")};
   });
-  con.end()
 })

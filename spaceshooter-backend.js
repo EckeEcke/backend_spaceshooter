@@ -39,6 +39,9 @@ app.get('/', function (req, res) {
 app.post('/post', function(request,response){
   //const postSQL = 'INSERT INTO highscores (Player, Score) VALUES ([request.body.Player],[request.body.Score])';
   console.log(request.body);
+  if(request.body.Player == undefined) {
+    console.log("no player defined in request body.............")
+  }
   if(request.body.Player != undefined && request.body.Score != undefined){
     con.query('INSERT INTO highscores (Player,Score) VALUES (?, ?)',[request.body.Player,request.body.Score], function (err) {
       if(err) throw err;

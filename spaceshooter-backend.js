@@ -29,8 +29,7 @@ app.use(cors({
   'origin': 'https://eckeecke.github.io',
 }));
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  next();
+  res.header("Access-Control-Allow-Origin", "https://eckeecke.github.io");
 });
 
 

@@ -14,10 +14,6 @@ const con = mysql.createConnection({
 
 const sql = `SELECT * FROM highscores ORDER BY Score DESC`;
 
-app.use(express.json());
-app.use(cors({
-  'Access-Control-Allow-Origin': '*'
-}));
 
 con.connect(function(err) {
   if(err) throw err;
@@ -27,6 +23,11 @@ con.connect(function(err) {
      console.log("Result: " + result);
   });
 });
+
+app.use(express.json());
+app.use(cors({
+  'Access-Control-Allow-Origin': '*'
+}));
 
 
 app.get('/', function (req, res) {
@@ -38,7 +39,7 @@ app.get('/', function (req, res) {
 }).listen(port);
 
 app.post('/post', function(request,response){
-  console.log('Request was: ' + request.body)
+  console.log('Request was: ' + request.body.Player)
   con.query('INSERT INTO highscores (Player,Score) VALUES (?, ?)',[request.body.Player,request.body.Score], function (err) {
     if(err) throw err;
     else {response.send("Received request")};

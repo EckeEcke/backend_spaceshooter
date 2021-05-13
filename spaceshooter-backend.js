@@ -26,8 +26,8 @@ con.connect(function(err) {
 
 app.use(express.json());
 app.use(cors({
-  'origin': 'https://eckeecke.github.io/shooter',
-  'Access-Control-Allow-Origin': 'https://eckecke.github.io/shooter'
+  'origin': 'https://eckeecke.github.io',
+  'Access-Control-Allow-Origin': 'https://eckecke.github.io'
 }));
 
 

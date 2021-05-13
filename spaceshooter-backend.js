@@ -40,6 +40,7 @@ app.get('/', function (req, res) {
 
 
 app.post('/post', function(request,response){
+  console.log(request)
   con.query('INSERT INTO highscores (Player,Score) VALUES (?, ?)',[request.body.Player,request.body.Score], function (err) {
     if(err) throw err;
     else {response.send("Received request")};

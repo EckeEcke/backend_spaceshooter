@@ -36,8 +36,8 @@ app.get('/', function (req, res) {
 }).listen(port);
 
 app.post('/post', function(request,response){
+  console.log('Request was: ' + JSON.parse(request.body))
   con.query('INSERT INTO highscores (Player,Score) VALUES (?, ?)',[request.body.Player,request.body.Score], function (err) {
-    console.log(request.body)
     if(err) throw err;
     else {response.send("Received request")};
   });

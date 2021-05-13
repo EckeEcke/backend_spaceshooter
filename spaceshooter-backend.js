@@ -24,8 +24,11 @@ con.connect(function(err) {
   });
 });
 
-app.use(cors());
 app.use(express.json());
+app.use(cors({
+  origin: 'https://eckeecke.github.io/shooter'
+}));
+
 
 app.get('/', function (req, res) {
   con.query(sql, function(err,result){

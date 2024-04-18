@@ -5,10 +5,10 @@ const port = process.env.PORT || 3000;
 const http = require('http');
 const mysql = require('mysql');
 const con = mysql.createConnection({
-  host: "ulsq0qqx999wqz84.chr7pe7iynqr.eu-west-1.rds.amazonaws.com",
-  database: "qzl4o8akbn6y17dv",
-  user: "mpwyg8k3gepwa8ib",
-  password: "cgyqdt5o7p6l3q6w",
+  host: "sql11.freesqldatabase.com",
+  database: "sql11700098",
+  user: "sql11700098",
+  password: "XHDzp2mZny",
   port: 3306
 });
 

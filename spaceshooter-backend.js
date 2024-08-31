@@ -1,26 +1,3 @@
-
-
-
-app.post('/post', function(request,response){
-  //const postSQL = 'INSERT INTO highscores (Player, Score) VALUES ([request.body.Player],[request.body.Score])';
-  console.log(request.body);
-  if(request.body.Player == undefined) {
-    console.log("no player defined in request body.............")
-  }
-  if(request.body.Player != undefined && request.body.Score != undefined){
-    con.query('INSERT INTO highscores (Player,Score) VALUES (?, ?)',[request.body.Player,request.body.Score], function (err) {
-      if(err) throw err;
-      else {response.send("Received request")};
-  })
-  }
-})
-
-
-
-
-
-
-
 const express = require('express')
 const { MongoClient } = require("mongodb")
 const cors = require('cors')
@@ -66,8 +43,8 @@ app.get('/', async (req, res) => {
 })
 
 app.post('/post', async (request,response) => {
-  if(request.body.Player == undefined) {
-    console.log("no player defined in request body.............")
+  if(request.body.Player == undefined || request.body.Score == undefined) {
+    response.status(500).send("Incomplete highscore data")
     return
   }
 

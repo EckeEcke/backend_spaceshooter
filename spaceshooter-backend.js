@@ -36,7 +36,7 @@ run().catch(console.dir)
 app.get('/', async (req, res) => {
   try {
     const highscores = await database.collection('highscores').find().toArray()
-    res.json(scores)
+    res.json(highscores)
   } catch (err) {
     res.status(500).json({ message: err.message })
   }

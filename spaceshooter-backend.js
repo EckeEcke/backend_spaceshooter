@@ -34,7 +34,7 @@ app.get('/', async (req, res) => {
   try {
     const highscores = await database.collection('highscores')
     .find()
-    .sort({ score: -1 })
+    .sort({ Score: -1 })
     .toArray()
     res.json(highscores)
   } catch (err) {

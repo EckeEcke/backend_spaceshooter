@@ -51,7 +51,7 @@ app.post('/post', async (request,response) => {
   try {
     const result = await database.collection('highscores').insertOne({
         Player: request.body.Player,
-        Score: request.body.Score
+        Score: request.body.score
     })
     response.json({ message: "Received request", result })
   } catch (err) {
